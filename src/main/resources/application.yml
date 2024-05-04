@@ -1,0 +1,28 @@
+# CUSTOM ENVIRONMENT VARS
+# TODO
+
+# JPA CONFIGS
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/exitgame
+    username: dbadmin
+    password: dieses_Passwort_ist_nicht_sicher
+
+  # Flyway
+  flyway:
+    locations: "classpath:db/migration"
+    #enabled: false
+
+  # JPA
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+      format_sql: true
+
+# SERVER CONFIGS
+server:
+  port: 8081

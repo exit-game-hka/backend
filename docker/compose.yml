@@ -1,0 +1,132 @@
+version: "3"
+services:
+  # --------------------------------------------------------
+  # Datenbank
+  # --------------------------------------------------------
+  exit-game-database:
+    container_name: exit-game-db
+    image: postgres:12
+    #ports:
+      #- "127.0.0.1:5433:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD-SHELL", "sh -c 'pg_isready -U dbadmin -d exitgame'" ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    environment:
+      POSTGRES_USER: "dbadmin"
+      POSTGRES_PASSWORD: "dieses_Passwort_ist_nicht_sicher"
+      POSTGRES_DB: "exitgame"
+
+  # --------------------------------------------------------
+  # Backend - Game server backend
+  # --------------------------------------------------------
+  exit-game-backend:
+    container_name: exit-game-backend
+    image: exit-game-backend:latest
+    ports:
+      - "127.0.0.1:8081:8081"
+    restart: unless-stopped
+    depends_on:
+      exit-game-database:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://exit-game-db:5432/exitgame
+
+  # --------------------------------------------------------
+  # Frontend - Game server frontend
+  # --------------------------------------------------------
+  exit-game-frontend:
+    container_name: exit-game-frontend
+    image: exit-game-frontend:latest
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: unless-stopped
+    depends_on:
+      - exit-game-backend
+
+  # --------------------------------------------------------
+  # Identity manager and provider
+  # --------------------------------------------------------
+  exit-game-keycloak:
+    container_name: exit-game-keycloak
+    image: keycloak:latest
+    #ports:
+      #- "127.0.0.1:3001:3001"
+    restart: unless-stopped
+
+  # --------------------------------------------------------
+  # Middleware for Security
+  # --------------------------------------------------------
+  exit-game-security-middleware:
+    container_name: exit-game-security-middleware
+    image: exit-game-security-middleware:latest
+    #ports:
+      #- "127.0.0.1:3001:3001"
+    restart: unless-stopped
+    depends_on:
+      - exit-game-keycloak
+
+  # --------------------------------------------------------
+  # Admin dashboard
+  # --------------------------------------------------------
+  exit-game-admin-dashboard:
+    container_name: exit-game-admin-dashboard
+    image: exit-game-admin-dashboard:latest
+    ports:
+      - "127.0.0.1:3001:3000"
+    restart: unless-stopped
+    #depends_on:
+      #- exit-game-keycloak
+      #- exit-game-security-middleware
+
+  # --------------------------------------------------------
+  # Jenkins
+  # --------------------------------------------------------
+  exit-game-jenkins:
+    container_name: exit-game-jenkins
+    image: jenkins:latest
+    #ports:
+    #- "127.0.0.1:3001:3001"
+    restart: unless-stopped
+
+  # --------------------------------------------------------
+  # Sonarqube
+  # --------------------------------------------------------
+  exit-game-sonarqube:
+    container_name: exit-game-sonarqube
+    image: sonarqube:latest
+    #ports:
+    #- "127.0.0.1:3001:3001"
+    restart: unless-stopped
+
+  # --------------------------------------------------------
+  # Apache httpd - Apache HTTP server as proxy server
+  # TODO: It's better to run the proxy server directly on the server
+  # --------------------------------------------------------
+#  exit-game-proxy-server:
+#    container_name: exit-game-proxy-server
+#    image: nginx
+#    ports:
+#      - "127.0.0.1:80:80"
+#      - "127.0.0.1:443:443"
+#    restart: unless-stopped
+#    volumes:
+#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+#    environment:
+#      - NGINX_PORT=80
+
+  # --------------------------------------------------------
+  # Monitoring
+  # TODO: Find and add a or multiple monitoring tools
+  # --------------------------------------------------------
+  #exit-game-monitoring:
+    #container_name: exit-game-monitoring
+    #image: ?:latest
+    #ports:
+    #- "127.0.0.1:3001:3001"
+    #restart: unless-stopped
+
+
+

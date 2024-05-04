@@ -1,0 +1,9 @@
+spring:
+  # Flyway
+  flyway:
+    enabled: false
+
+  # JPA
+  jpa:
+    hibernate:
+      ddl-auto: create-drop

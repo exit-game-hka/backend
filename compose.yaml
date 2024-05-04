@@ -1,0 +1,11 @@
+version: '3'
+services:
+  database:
+    container_name: exit-game-db
+    image: postgres:12
+    ports:
+      - "127.0.0.1:5433:5432"
+    environment:
+      POSTGRES_USER: 'dbadmin'
+      POSTGRES_PASSWORD: 'dieses_Passwort_ist_nicht_sicher'
+      POSTGRES_DB: 'exitgame'
