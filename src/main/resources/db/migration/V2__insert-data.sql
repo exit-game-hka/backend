@@ -15,7 +15,8 @@ VALUES
     ('20000000-0000-0000-0000-000000000002', 'Beschreibung Raum 2', 'Raum 2'),
     ('20000000-0000-0000-0000-000000000003', 'Beschreibung Raum 3', 'Raum 3'),
     ('20000000-0000-0000-0000-000000000004', 'Beschreibung Raum 4', 'Raum 4'),
-    ('20000000-0000-0000-0000-000000000005', 'Beschreibung Raum 5', 'Raum 5')
+    ('20000000-0000-0000-0000-000000000005', 'Beschreibung Raum 5', 'Raum 5'),
+    ('20000000-0000-0000-0000-000000000006', 'Beschreibung Raum 6', 'Raum 6')
 ;
 
 -- Aufgabe Table
@@ -26,7 +27,8 @@ VALUES
     ('30000000-0000-0000-0000-000000000002', 'Beschreibung Aufgabe 2', 'Erkläre die Begriffe IP und MAC-Adresse', 240, '20000000-0000-0000-0000-000000000002'),
     ('30000000-0000-0000-0000-000000000003', 'Beschreibung Aufgabe 3', 'Erkläre den Begriff "Asynchrone Programmierung"', 240, '20000000-0000-0000-0000-000000000003'),
     ('30000000-0000-0000-0000-000000000004', 'Beschreibung Aufgabe 4', 'Was versteht man unter einem Lamda-Ausdruck ?', 240, '20000000-0000-0000-0000-000000000004'),
-    ('30000000-0000-0000-0000-000000000005', 'Beschreibung Aufgabe 5', 'Wer ist ein SCRUM-Master ?', 240, '20000000-0000-0000-0000-000000000005')
+    ('30000000-0000-0000-0000-000000000005', 'Beschreibung Aufgabe 5', 'Wer ist ein SCRUM-Master ?', 240, '20000000-0000-0000-0000-000000000005'),
+    ('30000000-0000-0000-0000-000000000006', 'Beschreibung Aufgabe 6', 'Wer ist ein SCRUM-Master ?', 240, '20000000-0000-0000-0000-000000000006')
 ;
 
 -- Loesung Table
@@ -37,7 +39,8 @@ VALUES
     ('40000000-0000-0000-0000-000000000003', 'Asynchrone Programmierung ist ein Paradigma, bei dem Aufgaben gleichzeitig ausgeführt werden, ohne auf den Abschluss einer anderen Aufgabe zu warten.', '30000000-0000-0000-0000-000000000003'),
     ('40000000-0000-0000-0000-000000000004', 'Ein anonymer Ausdruck', '30000000-0000-0000-0000-000000000004'),
     ('40000000-0000-0000-0000-000000000005', 'Eine Funktion ohne Namen', '30000000-0000-0000-0000-000000000004'),
-    ('40000000-0000-0000-0000-000000000006', 'Ein Scrum Master fungiert als Vermittler und Führer innerhalb des Scrum-Rahmens, einer agilen Projektmanagement-Methode.', '30000000-0000-0000-0000-000000000005')
+    ('40000000-0000-0000-0000-000000000006', 'Ein Scrum Master fungiert als Vermittler und Führer innerhalb des Scrum-Rahmens, einer agilen Projektmanagement-Methode.', '30000000-0000-0000-0000-000000000005'),
+    ('40000000-0000-0000-0000-000000000007', 'Ein Scrum Master fungiert als Vermittler und Führer innerhalb des Scrum-Rahmens, einer agilen Projektmanagement-Methode.', '30000000-0000-0000-0000-000000000006')
 ;
 
 -- Gegenstand Table
