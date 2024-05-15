@@ -21,7 +21,9 @@ create table aufgabe
         constraint fk4vnd0faebh1479jkrtgc5u5pg
             references raum,
     beschreibung   varchar(255),
-    wert           varchar(255)
+    wert           varchar(255),
+    erfolg_meldung varchar,
+    fehlschlag_meldung varchar
 );
 
 alter table aufgabe

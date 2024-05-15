@@ -30,6 +30,12 @@ public class Aufgabe {
 
     private String beschreibung;
 
+    @Column(name = "erfolg_meldung")
+    private String erfolgMeldung;
+
+    @Column(name = "fehlschlag_meldung")
+    private String fehlschlagMeldung;
+
     @OneToMany(mappedBy = "aufgabe", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Loesung> loesungen;
 
