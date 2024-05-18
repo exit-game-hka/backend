@@ -20,4 +20,8 @@ final class ApiRoute {
     public static final String RAUM_ROUTE = "/raeume";
 
     public static final String SPIELER_ROUTE = "/spieler";
+
+    public static final String SEMESTER_ROUTE = "/semester";
+
+    public static final String VERANSTALTUNG_ROUTE = "/veranstaltung";
 }

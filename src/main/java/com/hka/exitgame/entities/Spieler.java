@@ -23,6 +23,10 @@ public class Spieler {
 
     private String avatarName;
 
+    private String semesterId;
+
+    private String veranstaltungId;
+
     @ManyToMany
     @JoinTable(
             name = "ergebnis",

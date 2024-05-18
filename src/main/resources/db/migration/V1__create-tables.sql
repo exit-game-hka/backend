@@ -1,4 +1,30 @@
 -- auto-generated definition
+create table semester
+(
+    id           uuid not null
+        primary key,
+    start varchar(255),
+    ende varchar(255),
+    bezeichnung   varchar(255)
+);
+
+alter table semester
+    owner to dbadmin;
+
+-- auto-generated definition
+create table veranstaltung
+(
+    id           uuid not null
+        primary key,
+    name varchar(255),
+    bezeichnung   varchar(255),
+    beschreibung  varchar
+);
+
+alter table veranstaltung
+    owner to dbadmin;
+
+-- auto-generated definition
 create table raum
 (
     id           uuid not null
@@ -35,7 +61,9 @@ create table spieler
 (
     id          uuid not null
         primary key,
-    avatar_name varchar(255)
+    avatar_name varchar(255),
+    semester_id varchar(255),
+    veranstaltung_id varchar
 );
 
 alter table spieler
