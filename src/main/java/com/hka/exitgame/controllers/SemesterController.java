@@ -39,8 +39,8 @@ public class SemesterController {
         semesterService.update(semester);
     }
 
-    @DeleteMapping
-    public void delete(final UUID id) {
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable(name = "id") final UUID id) {
         semesterService.delete(id);
     }
 }

@@ -47,14 +47,19 @@ services:
       - exit-game-backend
 
   # --------------------------------------------------------
-  # Identity manager and provider
+  # Auth and identity provider
   # --------------------------------------------------------
   exit-game-keycloak:
     container_name: exit-game-keycloak
-    image: keycloak:latest
-    #ports:
-      #- "127.0.0.1:3001:3001"
+    image: keycloak/keycloak:24.0.2
+    ports:
+      - "127.0.0.1:9090:8080"
     restart: unless-stopped
+    environment:
+      KEYCLOAK_ADMIN: exit-game-admin
+      KEYCLOAK_ADMIN_PASSWORD: pa55w0rd
+    command:
+      - "start-dev"
 
   # --------------------------------------------------------
   # Middleware for Security
@@ -127,6 +132,3 @@ services:
     #ports:
     #- "127.0.0.1:3001:3001"
     #restart: unless-stopped
-
-
-

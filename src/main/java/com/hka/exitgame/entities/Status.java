@@ -30,5 +30,6 @@ public class Status {
 
     private String spielEnde;
 
+    @Column(nullable = false)
     private Boolean istSpielBeendet;
 }

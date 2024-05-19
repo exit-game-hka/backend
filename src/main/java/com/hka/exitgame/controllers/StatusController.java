@@ -20,12 +20,12 @@ public class StatusController {
     private final StatusService statusService;
 
     @GetMapping("/spieler/{id}")
-    public Status findBySpielerId(@PathVariable final UUID id) {
+    public Status findBySpielerId(@PathVariable(name = "id") final UUID id) {
         return statusService.findBySpielerId(id);
     }
 
     @GetMapping("/semester/{id}")
-    public List<Status> findBySemesterId(@PathVariable final UUID id) {
+    public List<Status> findBySemesterId(@PathVariable(name = "id") final UUID id) {
         return statusService.findBySemesterId(id);
     }
 

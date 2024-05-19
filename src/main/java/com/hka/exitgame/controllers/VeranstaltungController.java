@@ -20,7 +20,7 @@ public class VeranstaltungController {
     private final VeranstaltungService veranstaltungService;
 
     @GetMapping("/{id}")
-    public Veranstaltung findById(final UUID id) {
+    public Veranstaltung findById(@PathVariable(name = "id") final UUID id) {
         return veranstaltungService.findById(id);
     }
 
@@ -39,8 +39,8 @@ public class VeranstaltungController {
         veranstaltungService.update(veranstaltung);
     }
 
-    @DeleteMapping
-    public void delete(final UUID id) {
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable(name = "id") final UUID id) {
         veranstaltungService.delete(id);
     }
 }
