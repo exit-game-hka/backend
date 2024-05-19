@@ -145,3 +145,18 @@ create table loesung
 
 alter table loesung
     owner to dbadmin;
+
+-- auto-generated definition
+create table status
+(
+    id           uuid not null primary key,
+    spieler_id   uuid not null,
+    semester_id  uuid not null,
+    veranstaltung_id   uuid not null,
+    spiel_start   varchar(255),
+    spiel_ende   varchar(255),
+    ist_spiel_beendet   boolean
+);
+
+alter table status
+    owner to dbadmin;

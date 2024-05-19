@@ -24,4 +24,6 @@ final class ApiRoute {
     public static final String SEMESTER_ROUTE = "/semester";
 
     public static final String VERANSTALTUNG_ROUTE = "/veranstaltung";
+
+    public static final String STATUS_ROUTE = "/status";
 }
