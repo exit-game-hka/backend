@@ -23,8 +23,11 @@ public class Interaktion {
     @Column(name = "spieler_fk")
     private UUID spielerId;
 
+    @Column(name = "aufgabe_fk")
+    private UUID aufgabeId;
+
     @Column(name = "gegenstand_fk")
     private UUID gegenstandId;
 
-    private String typ;
+    private String action;
 }

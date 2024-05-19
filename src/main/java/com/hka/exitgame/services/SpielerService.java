@@ -1,5 +1,6 @@
 package com.hka.exitgame.services;
 
+import com.hka.exitgame.dto.SpielerDto;
 import com.hka.exitgame.entities.Spieler;
 import com.hka.exitgame.repositories.SpielerRepository;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,11 @@ public class SpielerService {
 
     public List<Spieler> findAll() {
         return spielerRepository.findAll();
+    }
+
+    public void create(final SpielerDto spielerDto) {
+        var spieler = spielerDto.toSpieler();
+        spielerRepository.save(spieler);
     }
 
     public void update(Spieler spieler) {

@@ -32,4 +32,7 @@ public class Status {
 
     @Column(nullable = false)
     private Boolean istSpielBeendet;
+
+    @Column(nullable = false)
+    private Boolean istSpielAbgebrochen;
 }

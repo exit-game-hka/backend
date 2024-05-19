@@ -1,5 +1,6 @@
 package com.hka.exitgame.controllers;
 
+import com.hka.exitgame.dto.InteraktionDto;
 import com.hka.exitgame.entities.Interaktion;
 import com.hka.exitgame.services.InteraktionService;
 import lombok.AllArgsConstructor;
@@ -18,10 +19,10 @@ public class InteraktionController {
     private final InteraktionService interaktionService;
 
     @GetMapping
-    public Interaktion find(@RequestParam Map<String, String> params) {
+    public List<Interaktion> find(@RequestParam Map<String, String> params) {
         return interaktionService.find(
-                UUID.fromString(params.get("spielerId")),
-                UUID.fromString(params.get("gegenstandId"))
+                UUID.fromString(params.get("spieler_id")),
+                UUID.fromString(params.get("aufgabe_id"))
         );
     }
 
@@ -29,4 +30,10 @@ public class InteraktionController {
     public List<Interaktion> findAll() {
         return interaktionService.findAll();
     }
+
+    @PostMapping
+    public void create(@RequestBody final InteraktionDto interaktionDto) {
+        interaktionService.create(interaktionDto);
+    }
+
 }

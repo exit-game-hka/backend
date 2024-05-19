@@ -1,5 +1,6 @@
 package com.hka.exitgame.services;
 
+import com.hka.exitgame.dto.InteraktionDto;
 import com.hka.exitgame.entities.Interaktion;
 import com.hka.exitgame.repositories.InteraktionRepository;
 import lombok.AllArgsConstructor;
@@ -16,9 +17,13 @@ public class InteraktionService {
 
     private final InteraktionRepository interaktionRepository;
 
-    public Interaktion find(UUID spielerId, UUID gegenstandId) {
-        var interaktion = interaktionRepository.findByGegenstandIdAndSpielerId(gegenstandId, spielerId);
-        return interaktion.orElse(null);
+    public List<Interaktion> find(UUID spielerId, UUID gegenstandId) {
+        return interaktionRepository.findByGegenstandIdAndAufgabeId(gegenstandId, spielerId);
+    }
+
+    public void create(final InteraktionDto interaktionDto) {
+        var interaktion = interaktionDto.toInteraktion();
+        interaktionRepository.save(interaktion);
     }
 
     public List<Interaktion> findAll() {

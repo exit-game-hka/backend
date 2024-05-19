@@ -1,5 +1,6 @@
 package com.hka.exitgame.controllers;
 
+import com.hka.exitgame.dto.SpielerDto;
 import com.hka.exitgame.entities.Spieler;
 import com.hka.exitgame.services.SpielerService;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,11 @@ public class SpielerController {
     @GetMapping("/alle")
     public List<Spieler> findAll() {
         return spielerService.findAll();
+    }
+
+    @PostMapping
+    public void create(@RequestBody final SpielerDto spielerDto) {
+        spielerService.create(spielerDto);
     }
 
     @PutMapping

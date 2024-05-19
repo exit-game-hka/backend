@@ -15,7 +15,9 @@ public record StatusDto(
 
         String spielEnde,
 
-        Boolean istSpielBeendet
+        Boolean istSpielBeendet,
+
+        Boolean istSpielAbgebrochen
 ) {
 
     public Status toStatus() {
@@ -27,6 +29,7 @@ public record StatusDto(
                 .spielStart(spielStart)
                 .spielEnde(spielEnde)
                 .istSpielBeendet(istSpielBeendet)
+                .istSpielAbgebrochen(istSpielAbgebrochen)
                 .build();
     }
 }
