@@ -46,7 +46,7 @@ public class SpielerRepositoryTest {
     public void SpielerRepository_FindById_ShouldReturnASingleSpieler() {
         // Given
         Spieler spieler1 = Spieler.builder()
-                .avatarName("Spieler 1")
+                .spielerId("Spieler 1")
                 .build();
 
         // When

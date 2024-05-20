@@ -45,10 +45,10 @@ public class SpielerServiceTest {
         // Given
         List<Spieler> spielerList = List.of(
                 Spieler.builder()
-                        .avatarName("Spieler 1")
+                        .spielerId("Spieler 1")
                         .build(),
                 Spieler.builder()
-                        .avatarName("Spieler 2")
+                        .spielerId("Spieler 2")
                         .build()
         );
 
