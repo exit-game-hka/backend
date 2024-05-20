@@ -24,11 +24,11 @@ public class SpielerRepositoryTest {
     public void SpielerRepository_FindAll_ShouldReturnAllSpieler() {
         // Given
         Spieler spieler1 = Spieler.builder()
-                .avatarName("Spieler 1")
+                .spielerId("Spieler 1")
                 .build();
 
         Spieler spieler2 = Spieler.builder()
-                .avatarName("Spieler 2")
+                .spielerId("Spieler 2")
                 .build();
 
         // When
