@@ -54,7 +54,7 @@ alter table aufgabe
 create table spieler
 (
     id                  uuid not null primary key,
-    avatar_name         varchar(255),
+    spieler_id          varchar(255) unique not null,
     semester_id         varchar(255),
     veranstaltung_id    varchar
 );

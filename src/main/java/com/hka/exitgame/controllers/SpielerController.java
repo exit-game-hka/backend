@@ -19,6 +19,11 @@ public class SpielerController {
 
     private final SpielerService spielerService;
 
+    @GetMapping
+    public Spieler find(@RequestParam(name = "spieler_id", required = false) final String avatarName) {
+        return spielerService.findBySpielerId(avatarName);
+    }
+
     @GetMapping("{id}")
     public Spieler findById(@PathVariable("id") final UUID id) {
         return spielerService.findById(id);

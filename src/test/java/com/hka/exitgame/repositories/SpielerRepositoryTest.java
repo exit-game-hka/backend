@@ -60,6 +60,6 @@ public class SpielerRepositoryTest {
 
         // Then
         Assertions.assertThat(spielerFromDatabase).isNotNull();
-        Assertions.assertThat(spielerFromDatabase.get().getAvatarName()).isEqualTo("Spieler 1");
+        Assertions.assertThat(spielerFromDatabase.get().getSpielerId()).isEqualTo("Spieler 1");
     }
 }

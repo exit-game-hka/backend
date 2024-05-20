@@ -4,7 +4,7 @@ import com.hka.exitgame.entities.Spieler;
 
 public record SpielerDto(
 
-        String avatarName,
+        String spielerId,
         String semesterId,
         String veranstaltungId
 ) {
@@ -12,7 +12,7 @@ public record SpielerDto(
     public Spieler toSpieler() {
         return Spieler.builder()
                 .id(null)
-                .avatarName(avatarName)
+                .spielerId(spielerId)
                 .semesterId(semesterId)
                 .veranstaltungId(veranstaltungId)
                 .build();

@@ -21,7 +21,8 @@ public class Spieler {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "uuid")
     private UUID id;
 
-    private String avatarName;
+    @Column(unique = true, nullable = false, updatable = false)
+    private String spielerId;
 
     private String semesterId;
 

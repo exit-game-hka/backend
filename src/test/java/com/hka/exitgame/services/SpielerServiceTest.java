@@ -37,7 +37,7 @@ public class SpielerServiceTest {
 
         // Then
         Assertions.assertThat(spielerReturn).isNotNull();
-        Assertions.assertThat(spielerReturn.getAvatarName()).isEqualTo("Spieler 1");
+        Assertions.assertThat(spielerReturn.getSpielerId()).isEqualTo("Spieler 1");
     }
 
     @Test

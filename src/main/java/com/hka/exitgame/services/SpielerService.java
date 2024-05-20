@@ -18,9 +18,11 @@ public class SpielerService {
     private final SpielerRepository spielerRepository;
 
     public Spieler findById(UUID id) {
-        var spieler = spielerRepository.findById(id);
-        log.info("Spieler Id: {}", id);
-        return spieler.orElse(null);
+        return spielerRepository.findById(id).orElse(null);
+    }
+
+    public Spieler findBySpielerId(final String id) {
+        return spielerRepository.findBySpielerId(id).orElse(null);
     }
 
     public List<Spieler> findAll() {
