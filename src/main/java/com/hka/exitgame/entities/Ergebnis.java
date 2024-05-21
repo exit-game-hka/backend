@@ -20,15 +20,18 @@ public class Ergebnis {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "uuid")
     private UUID id;
 
-    @Column(name = "spieler_fk")
+    @Column(name = "spieler_fk", nullable = false)
     private UUID spielerId;
+
+    @Column(nullable = false)
+    private UUID semesterId;
 
     @ManyToOne
     @JoinColumn(name = "spieler_fk", insertable = false, updatable = false)
     @JsonIgnore
     private Spieler spieler;
 
-    @Column(name = "aufgabe_fk")
+    @Column(name = "aufgabe_fk", nullable = false)
     private UUID aufgabeId;
 
     @ManyToOne
@@ -36,7 +39,8 @@ public class Ergebnis {
     @JsonIgnore
     private Aufgabe aufgabe;
 
-    private Integer versuch;
+    // TODO: Remove, not required...
+    // private Integer versuch;
 
     private Integer geloestIn;
 }

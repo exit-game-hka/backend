@@ -68,9 +68,9 @@ create table ergebnis
 (
     id              uuid not null primary key,
     geloest_in      integer,
-    versuch         integer,
     aufgabe_fk      uuid constraint ergebnis_aufgabe_idx references aufgabe,
-    spieler_fk      uuid constraint ergebnis_spieler_idx references spieler
+    spieler_fk      uuid constraint ergebnis_spieler_idx references spieler,
+    semester_id     uuid not null
 );
 
 alter table ergebnis

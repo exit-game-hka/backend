@@ -1,5 +1,6 @@
 package com.hka.exitgame.controllers;
 
+import com.hka.exitgame.dto.ErgebnisDto;
 import com.hka.exitgame.entities.Ergebnis;
 import com.hka.exitgame.services.ErgebniService;
 import lombok.AllArgsConstructor;
@@ -22,13 +23,23 @@ public class ErgebnisController {
     @GetMapping
     public Ergebnis find(@RequestParam Map<String, String> params) {
         return ergebniService.find(
-                UUID.fromString(params.get("aufgabeId")),
-                UUID.fromString(params.get("spielerId"))
+                UUID.fromString(params.get("aufgabe_id")),
+                UUID.fromString(params.get("spieler_id"))
         );
     }
 
-    @GetMapping("/alle")
-    public List<Ergebnis> findAll() {
-        return ergebniService.findAll();
+    @PostMapping
+    public void create(@RequestBody final ErgebnisDto ergebnisDto) {
+        ergebniService.create(ergebnisDto);
+    }
+
+//    @GetMapping("/alle")
+//    public List<Ergebnis> findAll() {
+//        return ergebniService.findAll();
+//    }
+
+    @GetMapping("/semester/{id}")
+    public List<Ergebnis> findBySemesterId(@PathVariable("id") final UUID id) {
+        return ergebniService.findBySemesterId(id);
     }
 }

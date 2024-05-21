@@ -1,5 +1,6 @@
 package com.hka.exitgame.services;
 
+import com.hka.exitgame.dto.ErgebnisDto;
 import com.hka.exitgame.entities.Ergebnis;
 import com.hka.exitgame.repositories.ErgebnisRepository;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,22 @@ public class ErgebniService {
         log.info("AugabeId = {}, SpielerId = {}", aufgabeId, spielerId);
         var ergebnis = ergebnisRepository.findByAufgabeIdAndSpielerId(aufgabeId, spielerId);
         return ergebnis.orElse(null);
+    }
+
+    public List<Ergebnis> findBySemesterId(final UUID semesterId) {
+        return ergebnisRepository.findBySemesterId(semesterId);
+    }
+
+    public void create(final ErgebnisDto ergebnisDto) {
+        var ergebnis = ergebnisDto.toErgebnis();
+        var ergebnisFromDb = ergebnisRepository.findByAufgabeIdAndSpielerId(ergebnis.getAufgabeId(), ergebnis.getSpielerId());
+        if (ergebnisFromDb.isEmpty()) {
+            ergebnisRepository.save(ergebnis);
+            return;
+        }
+        var istAufgabeGeloest = ergebnisFromDb.get().getGeloestIn();
+        if (istAufgabeGeloest != null) return;
+        ergebnisRepository.save(ergebnis);
     }
 
     public List<Ergebnis> findAll() {
