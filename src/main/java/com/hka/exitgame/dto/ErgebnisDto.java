@@ -8,7 +8,7 @@ public record ErgebnisDto(
         UUID spielerId,
         UUID aufgabeId,
         UUID semesterId,
-        Integer geloestIn
+        Double geloestIn
 ) {
 
     public Ergebnis toErgebnis() {

@@ -41,5 +41,6 @@ public class Ergebnis {
     // TODO: Remove, not required...
     // private Integer versuch;
 
-    private Integer geloestIn;
+    // Zeiteinheit in Minuten
+    private Double geloestIn;
 }
