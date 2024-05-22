@@ -1,8 +1,6 @@
 package com.hka.exitgame.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +16,7 @@ import java.util.UUID;
 public class Interaktion {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Column(name = "spieler_fk")
@@ -26,6 +25,7 @@ public class Interaktion {
     @Column(name = "aufgabe_fk")
     private UUID aufgabeId;
 
+    // TODO: Remove !!!. Not used anymore since game objects are managed on client side.
     @Column(name = "gegenstand_fk")
     private UUID gegenstandId;
 

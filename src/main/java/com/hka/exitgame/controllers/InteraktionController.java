@@ -20,7 +20,7 @@ public class InteraktionController {
 
     @GetMapping
     public List<Interaktion> find(@RequestParam Map<String, String> params) {
-        return interaktionService.find(
+        return interaktionService.findBySpielerIdAndAufgabeId(
                 UUID.fromString(params.get("spieler_id")),
                 UUID.fromString(params.get("aufgabe_id"))
         );

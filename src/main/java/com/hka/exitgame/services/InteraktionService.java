@@ -17,8 +17,8 @@ public class InteraktionService {
 
     private final InteraktionRepository interaktionRepository;
 
-    public List<Interaktion> find(UUID spielerId, UUID gegenstandId) {
-        return interaktionRepository.findByGegenstandIdAndAufgabeId(gegenstandId, spielerId);
+    public List<Interaktion> findBySpielerIdAndAufgabeId(UUID spielerId, UUID aufgabeId) {
+        return interaktionRepository.findBySpielerIdAndAufgabeId(spielerId, aufgabeId);
     }
 
     public void create(final InteraktionDto interaktionDto) {
