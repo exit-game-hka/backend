@@ -21,7 +21,7 @@ public class ErgebnisController {
     private final ErgebniService ergebniService;
 
     @GetMapping
-    public Ergebnis find(@RequestParam Map<String, String> params) {
+    public List<Ergebnis> find(@RequestParam Map<String, String> params) {
         return ergebniService.find(
                 UUID.fromString(params.get("aufgabe_id")),
                 UUID.fromString(params.get("spieler_id"))

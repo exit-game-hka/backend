@@ -17,10 +17,9 @@ public class ErgebniService {
 
     private final ErgebnisRepository ergebnisRepository;
 
-    public Ergebnis find(final UUID aufgabeId, final UUID spielerId) {
+    public List<Ergebnis> find(final UUID aufgabeId, final UUID spielerId) {
         log.info("AugabeId = {}, SpielerId = {}", aufgabeId, spielerId);
-        var ergebnis = ergebnisRepository.findByAufgabeIdAndSpielerId(aufgabeId, spielerId);
-        return ergebnis.orElse(null);
+        return ergebnisRepository.findByAufgabeIdAndSpielerId(aufgabeId, spielerId);
     }
 
     public List<Ergebnis> findBySemesterId(final UUID semesterId) {
@@ -29,13 +28,21 @@ public class ErgebniService {
 
     public void create(final ErgebnisDto ergebnisDto) {
         var ergebnis = ergebnisDto.toErgebnis();
-        var ergebnisFromDb = ergebnisRepository.findByAufgabeIdAndSpielerId(ergebnis.getAufgabeId(), ergebnis.getSpielerId());
-        if (ergebnisFromDb.isEmpty()) {
+        var ergebnisListFromDb = ergebnisRepository.findByAufgabeIdAndSpielerId(ergebnis.getAufgabeId(), ergebnis.getSpielerId());
+
+        ergebnisListFromDb.forEach(e -> {
+            log.info("ergebnisLitFromDb: {}", e);
+        });
+
+        if (ergebnisListFromDb.isEmpty()) {
             ergebnisRepository.save(ergebnis);
             return;
         }
-        var istAufgabeGeloest = ergebnisFromDb.get().getGeloestIn();
-        if (istAufgabeGeloest != null) return;
+        var istAufgabeGeloest = ergebnisListFromDb
+                .stream()
+                .filter(e -> e.getGeloestIn() != null)
+                .toList();
+        if (!istAufgabeGeloest.isEmpty()) return;
         ergebnisRepository.save(ergebnis);
     }
 

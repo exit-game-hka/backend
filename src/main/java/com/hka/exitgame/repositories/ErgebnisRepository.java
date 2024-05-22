@@ -11,7 +11,7 @@ import java.util.UUID;
 @Repository
 public interface ErgebnisRepository extends JpaRepository<Ergebnis, UUID> {
 
-    Optional<Ergebnis> findByAufgabeIdAndSpielerId(UUID aufgabeFk, UUID spielerFk);
+    List<Ergebnis> findByAufgabeIdAndSpielerId(UUID aufgabeFk, UUID spielerFk);
 
     List<Ergebnis> findBySemesterId(final UUID semesterId);
 }

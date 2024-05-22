@@ -2,10 +2,7 @@ package com.hka.exitgame.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -29,6 +26,7 @@ public class Ergebnis {
     @ManyToOne
     @JoinColumn(name = "spieler_fk", insertable = false, updatable = false)
     @JsonIgnore
+    @ToString.Exclude
     private Spieler spieler;
 
     @Column(name = "aufgabe_fk", nullable = false)
@@ -37,6 +35,7 @@ public class Ergebnis {
     @ManyToOne
     @JoinColumn(name = "aufgabe_fk", insertable = false, updatable = false)
     @JsonIgnore
+    @ToString.Exclude
     private Aufgabe aufgabe;
 
     // TODO: Remove, not required...
