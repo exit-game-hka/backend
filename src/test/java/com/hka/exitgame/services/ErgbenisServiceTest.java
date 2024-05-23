@@ -27,12 +27,10 @@ public class ErgbenisServiceTest {
         // Given
         List<Ergebnis> ergebnisList = List.of(
                 Ergebnis.builder()
-                        .versuch(2)
-                        .geloestIn(200)
+                        .geloestIn(200.0)
                         .build(),
                 Ergebnis.builder()
-                        .versuch(2)
-                        .geloestIn(60)
+                        .geloestIn(60.0)
                         .build()
         );
 
