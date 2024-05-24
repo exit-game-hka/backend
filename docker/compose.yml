@@ -7,7 +7,7 @@ services:
     container_name: exit-game-db
     image: postgres:12
     ports:
-      - "127.0.0.1:5433:5432"
+      - "5433:5432"
     restart: unless-stopped
     healthcheck:
       test: [ "CMD-SHELL", "sh -c 'pg_isready -U dbadmin -d exitgame'" ]
@@ -26,7 +26,7 @@ services:
     container_name: exit-game-backend
     image: exitgamehka/exit-game-backend:1.0.0
     ports:
-      - "127.0.0.1:8081:8081"
+      - "8081:8081"
     restart: unless-stopped
     depends_on:
       exit-game-database:
