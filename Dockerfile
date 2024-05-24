@@ -2,8 +2,8 @@ FROM openjdk:17-jdk
 
 WORKDIR /app
 
-COPY build/libs/game-server-backend-0.0.1-SNAPSHOT.jar .
+COPY build/libs/backend-0.0.1-SNAPSHOT.jar .
 
 EXPOSE 8081
 
-CMD ["java", "-jar", "game-server-backend-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "backend-0.0.1-SNAPSHOT.jar"]
