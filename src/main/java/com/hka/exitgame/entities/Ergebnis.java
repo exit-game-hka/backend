@@ -25,7 +25,7 @@ public class Ergebnis {
 
     @ManyToOne
     @JoinColumn(name = "spieler_fk", insertable = false, updatable = false)
-    @JsonIgnore
+    //@JsonIgnore
     @ToString.Exclude
     private Spieler spieler;
 
@@ -34,7 +34,7 @@ public class Ergebnis {
 
     @ManyToOne
     @JoinColumn(name = "aufgabe_fk", insertable = false, updatable = false)
-    @JsonIgnore
+    //@JsonIgnore
     @ToString.Exclude
     private Aufgabe aufgabe;
 
