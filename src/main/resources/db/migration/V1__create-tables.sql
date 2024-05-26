@@ -55,8 +55,8 @@ create table spieler
 (
     id                  uuid not null primary key,
     spieler_id          varchar(255) unique not null,
-    semester_id         varchar(255),
-    veranstaltung_id    varchar
+    semester_id         uuid,
+    veranstaltung_id    uuid
 );
 
 alter table spieler

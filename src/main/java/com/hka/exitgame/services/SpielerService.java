@@ -25,6 +25,10 @@ public class SpielerService {
         return spielerRepository.findBySpielerId(id).orElse(null);
     }
 
+    public List<Spieler> findBySemesterId(final UUID semesterId) {
+        return spielerRepository.findBySemesterId(semesterId);
+    }
+
     public List<Spieler> findAll() {
         return spielerRepository.findAll();
     }

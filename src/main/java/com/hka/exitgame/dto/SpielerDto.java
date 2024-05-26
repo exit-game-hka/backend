@@ -2,11 +2,13 @@ package com.hka.exitgame.dto;
 
 import com.hka.exitgame.entities.Spieler;
 
+import java.util.UUID;
+
 public record SpielerDto(
 
         String spielerId,
-        String semesterId,
-        String veranstaltungId
+        UUID semesterId,
+        UUID veranstaltungId
 ) {
 
     public Spieler toSpieler() {

@@ -24,9 +24,9 @@ public class Spieler {
     @Column(unique = true, nullable = false, updatable = false)
     private String spielerId;
 
-    private String semesterId;
+    private UUID semesterId;
 
-    private String veranstaltungId;
+    private UUID veranstaltungId;
 
     @ManyToMany
     @JoinTable(

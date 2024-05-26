@@ -30,7 +30,10 @@ public class SpielerController {
     }
 
     @GetMapping("/alle")
-    public List<Spieler> findAll() {
+    public List<Spieler> findAll(@RequestParam(name = "semester_id", required = false) final UUID semesterId) {
+        if (semesterId != null) {
+            return spielerService.findBySemesterId(semesterId);
+        }
         return spielerService.findAll();
     }
 
