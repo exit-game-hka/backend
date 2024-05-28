@@ -11,4 +11,6 @@ import java.util.UUID;
 public interface InteraktionRepository extends JpaRepository<Interaktion, UUID> {
 
     List<Interaktion> findBySpielerIdAndAufgabeId(UUID spielerId, UUID aufgabeId);
+
+    List<Interaktion> findBySpielerId(UUID spielerId);
 }

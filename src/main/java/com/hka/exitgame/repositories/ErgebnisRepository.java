@@ -14,4 +14,6 @@ public interface ErgebnisRepository extends JpaRepository<Ergebnis, UUID> {
     List<Ergebnis> findByAufgabeIdAndSpielerId(UUID aufgabeFk, UUID spielerFk);
 
     List<Ergebnis> findBySemesterId(final UUID semesterId);
+
+    List<Ergebnis> findBySpielerId(final UUID id);
 }

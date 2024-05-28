@@ -21,6 +21,10 @@ public class InteraktionService {
         return interaktionRepository.findBySpielerIdAndAufgabeId(spielerId, aufgabeId);
     }
 
+    public List<Interaktion> findBySpielerId(UUID spielerId) {
+        return interaktionRepository.findBySpielerId(spielerId);
+    }
+
     public void create(final InteraktionDto interaktionDto) {
         var interaktion = interaktionDto.toInteraktion();
         interaktionRepository.save(interaktion);

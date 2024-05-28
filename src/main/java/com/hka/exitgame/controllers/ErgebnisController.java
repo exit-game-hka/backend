@@ -22,10 +22,21 @@ public class ErgebnisController {
 
     @GetMapping
     public List<Ergebnis> find(@RequestParam Map<String, String> params) {
-        return ergebniService.find(
-                UUID.fromString(params.get("aufgabe_id")),
-                UUID.fromString(params.get("spieler_id"))
-        );
+        var queryParamAufgabeId = params.get("aufgabe_id");
+        var queryParamSpielerId = params.get("spieler_id");
+
+        if (queryParamAufgabeId != null && queryParamSpielerId != null) {
+            return ergebniService.findByAufgabeIdAndSpielerId(
+                    UUID.fromString(queryParamAufgabeId),
+                    UUID.fromString(queryParamSpielerId)
+            );
+        }
+
+        if (params.size() == 1 && queryParamSpielerId != null) {
+            return ergebniService.findBySpielerId(UUID.fromString(queryParamSpielerId));
+        }
+
+        return List.of();
     }
 
     @PostMapping

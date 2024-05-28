@@ -26,7 +26,7 @@ public class KommentarController {
     }
 
     @GetMapping
-    public List<Kommentar> findBySemesterId(@RequestParam final Map<String, String> params) {
+    public List<Kommentar> find(@RequestParam final Map<String, String> params) {
         var queryParamSpierlerId = params.get("spieler_id");
         var queryParamSemesterId = params.get("semester_id");
 

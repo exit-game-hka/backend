@@ -17,13 +17,17 @@ public class ErgebniService {
 
     private final ErgebnisRepository ergebnisRepository;
 
-    public List<Ergebnis> find(final UUID aufgabeId, final UUID spielerId) {
+    public List<Ergebnis> findByAufgabeIdAndSpielerId(final UUID aufgabeId, final UUID spielerId) {
         log.info("AugabeId = {}, SpielerId = {}", aufgabeId, spielerId);
         return ergebnisRepository.findByAufgabeIdAndSpielerId(aufgabeId, spielerId);
     }
 
     public List<Ergebnis> findBySemesterId(final UUID semesterId) {
         return ergebnisRepository.findBySemesterId(semesterId);
+    }
+
+    public List<Ergebnis> findBySpielerId(final UUID id) {
+        return ergebnisRepository.findBySpielerId(id);
     }
 
     public void create(final ErgebnisDto ergebnisDto) {

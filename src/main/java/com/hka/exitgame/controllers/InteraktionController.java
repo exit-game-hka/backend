@@ -20,10 +20,21 @@ public class InteraktionController {
 
     @GetMapping
     public List<Interaktion> find(@RequestParam Map<String, String> params) {
-        return interaktionService.findBySpielerIdAndAufgabeId(
-                UUID.fromString(params.get("spieler_id")),
-                UUID.fromString(params.get("aufgabe_id"))
-        );
+        var queryParamAufgabeId = params.get("aufgabe_id");
+        var queryParamSpielerId = params.get("spieler_id");
+
+        if (queryParamAufgabeId != null && queryParamSpielerId != null) {
+            return interaktionService.findBySpielerIdAndAufgabeId(
+                    UUID.fromString(queryParamSpielerId),
+                    UUID.fromString(queryParamAufgabeId)
+            );
+        }
+
+        if (params.size() == 1 && queryParamSpielerId != null) {
+            return interaktionService.findBySpielerId(UUID.fromString(queryParamSpielerId));
+        }
+
+        return List.of();
     }
 
     @GetMapping("/alle")
