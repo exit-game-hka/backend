@@ -141,3 +141,15 @@ create table status
 
 alter table status
     owner to dbadmin;
+
+-- auto-generated definition
+create table kommentar
+(
+    id                      uuid not null primary key,
+    spieler_id              uuid not null,
+    semester_id             uuid not null,
+    inhalt                  varchar not null
+);
+
+alter table kommentar
+    owner to dbadmin;
