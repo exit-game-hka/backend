@@ -4,6 +4,7 @@ import com.hka.exitgame.dto.StatusDto;
 import com.hka.exitgame.entities.Status;
 import com.hka.exitgame.repositories.StatusRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class StatusService {
 
     private final StatusRepository statusRepository;
@@ -25,6 +27,12 @@ public class StatusService {
 
     public void create(final StatusDto statusDto) {
         var status = statusDto.toStatus();
+        var statusDb = statusRepository.findBySpielerId(status.getSpielerId());
+
+        if (statusDb.isPresent()) {
+            log.info("Status of student: {} already exists", status.getSpielerId());
+            return;
+        }
         statusRepository.save(status);
     }
 
