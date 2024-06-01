@@ -8,7 +8,8 @@ public record KommentarDto(
         UUID id,
         UUID spielerId,
         UUID semesterId,
-        String inhalt
+        String inhalt,
+        String creationTimestamp
 ) {
 
     public Kommentar toKommentar() {
@@ -17,6 +18,7 @@ public record KommentarDto(
                 .spielerId(spielerId)
                 .semesterId(semesterId)
                 .inhalt(inhalt)
+                .creationTimestamp(creationTimestamp)
                 .build();
     }
 }

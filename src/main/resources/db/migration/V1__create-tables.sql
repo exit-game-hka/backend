@@ -148,7 +148,8 @@ create table kommentar
     id                      uuid not null primary key,
     spieler_id              uuid not null,
     semester_id             uuid not null,
-    inhalt                  varchar not null
+    inhalt                  varchar not null,
+    creation_timestamp      varchar
 );
 
 alter table kommentar

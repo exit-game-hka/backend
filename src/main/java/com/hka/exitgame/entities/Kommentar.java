@@ -24,4 +24,5 @@ public class Kommentar {
     private UUID spielerId;
     private UUID semesterId;
     private String inhalt;
+    private String creationTimestamp;
 }

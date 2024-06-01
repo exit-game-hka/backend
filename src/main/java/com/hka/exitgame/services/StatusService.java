@@ -29,9 +29,13 @@ public class StatusService {
         var status = statusDto.toStatus();
         var statusDb = statusRepository.findBySpielerId(status.getSpielerId());
 
-        if (statusDb.isPresent()) {
-            log.info("Status of student: {} already exists", status.getSpielerId());
+        if (statusDb.isPresent() && statusDb.get().getIstSpielBeendet()) {
+            log.info("Status of student: {} already exists and player already won the game", status.getSpielerId());
             return;
+        }
+
+        if (statusDb.isPresent() && !statusDb.get().getIstSpielBeendet()) {
+            status.setId(statusDb.get().getId());
         }
         statusRepository.save(status);
     }
