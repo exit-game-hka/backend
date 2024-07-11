@@ -1,6 +1,7 @@
 package com.hka.exitgame.controllers;
 
 import com.hka.exitgame.dto.SpielerDto;
+import com.hka.exitgame.dto.SpielerListPageableResponse;
 import com.hka.exitgame.entities.Spieler;
 import com.hka.exitgame.services.SpielerService;
 import lombok.AllArgsConstructor;
@@ -30,11 +31,15 @@ public class SpielerController {
     }
 
     @GetMapping("/alle")
-    public List<Spieler> findAll(@RequestParam(name = "semester_id", required = false) final UUID semesterId) {
+    public SpielerListPageableResponse findAll(
+            @RequestParam(name = "semester_id", required = false) final UUID semesterId,
+            @RequestParam(name = "page_number", defaultValue = "0", required = false) final Integer pageNumber,
+            @RequestParam(name = "page_size", defaultValue = "5", required = false) final Integer pageSize
+    ) {
         if (semesterId != null) {
-            return spielerService.findBySemesterId(semesterId);
+            return spielerService.findBySemesterId(semesterId, pageNumber, pageSize);
         }
-        return spielerService.findAll();
+        return spielerService.findAll(pageNumber, pageSize);
     }
 
     @PostMapping
