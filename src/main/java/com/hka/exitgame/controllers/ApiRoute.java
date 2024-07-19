@@ -26,5 +26,12 @@ final class ApiRoute {
     public static final String VERANSTALTUNG_ROUTE = "/veranstaltung";
 
     public static final String STATUS_ROUTE = "/status";
+
     public static final String KOMMENTAR_ROUTE = "/kommentare";
+
+    public static final String NOTIFICATION_REST_ROUTE = "/notifications/rest";
+
+    public static final String NOTIFICATION_WEBSOCKET_SEND_ROUTE = "/topic/notifications";
+
+    public static final String NOTIFICATION_WEBSOCKET_RECEIVE_ROUTE = "/websocket-notifications";
 }

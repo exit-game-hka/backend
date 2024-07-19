@@ -154,3 +154,18 @@ create table kommentar
 
 alter table kommentar
     owner to dbadmin;
+
+-- auto-generated definition
+create table notification
+(
+    id                      uuid not null primary key,
+    user_name               varchar not null,
+    title                   varchar not null,
+    content                 varchar not null,
+    creation_date           varchar,
+    viewed                  boolean,
+    type                    varchar
+);
+
+alter table notification
+    owner to dbadmin;
