@@ -3,6 +3,8 @@ package com.hka.exitgame.services;
 import com.hka.exitgame.dto.SpielerDto;
 import com.hka.exitgame.dto.SpielerListPageableResponse;
 import com.hka.exitgame.entities.Spieler;
+import com.hka.exitgame.entities.SpielerFortschritt;
+import com.hka.exitgame.repositories.SpielerFortschrittRepository;
 import com.hka.exitgame.repositories.SpielerRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +13,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,6 +24,7 @@ import java.util.UUID;
 public class SpielerService {
 
     private final SpielerRepository spielerRepository;
+    private final SpielerFortschrittRepository spielerFortschrittRepository;
 
     public Spieler findById(UUID id) {
         return spielerRepository.findById(id).orElse(null);
@@ -57,7 +62,17 @@ public class SpielerService {
 
     public void create(final SpielerDto spielerDto) {
         var spieler = spielerDto.toSpieler();
-        spielerRepository.save(spieler);
+        var savedEntity = spielerRepository.save(spieler);
+
+        var spielerFortschritt = SpielerFortschritt.builder()
+                .id(null)
+                .spielerId(savedEntity.getSpielerId())
+                .prozentFortschritt("0%")
+                .updatedAt(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME))
+                .createdAt(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME))
+                .build();
+
+        spielerFortschrittRepository.save(spielerFortschritt);
     }
 
     public void update(Spieler spieler) {

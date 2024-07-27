@@ -169,3 +169,16 @@ create table notification
 
 alter table notification
     owner to dbadmin;
+
+-- auto-generated definition
+create table spieler_fortschritt
+(
+    id                      uuid not null primary key,
+    spieler_id              varchar not null,
+    prozent_fortschritt     varchar not null,
+    updated_at              varchar not null,
+    created_at              varchar not null
+);
+
+alter table spieler_fortschritt
+    owner to dbadmin;

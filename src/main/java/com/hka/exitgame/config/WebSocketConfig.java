@@ -1,5 +1,6 @@
 package com.hka.exitgame.config;
 
+import com.hka.exitgame.controllers.ApiRoute;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
@@ -19,7 +20,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws-notifications")
+        registry.addEndpoint(ApiRoute.API_VERSION + "/ws-notifications")
                 .setAllowedOriginPatterns("*")
                 .withSockJS();
     }

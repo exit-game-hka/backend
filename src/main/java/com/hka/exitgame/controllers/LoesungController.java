@@ -26,4 +26,9 @@ public class LoesungController {
     public List<Loesung> findAll() {
         return loesungService.findAll();
     }
+
+    @PutMapping
+    public void update(@RequestBody final Loesung loesung) {
+        loesungService.update(loesung);
+    }
 }

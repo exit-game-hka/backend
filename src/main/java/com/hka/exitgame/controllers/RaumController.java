@@ -27,4 +27,9 @@ public class RaumController {
     public List<Raum> findAll() {
         return raumService.findAll();
     }
+
+    @PutMapping
+    public void update(@RequestBody final Raum raum) {
+        raumService.update(raum);
+    }
 }

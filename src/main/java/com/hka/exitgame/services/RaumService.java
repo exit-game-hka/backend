@@ -24,4 +24,8 @@ public class RaumService {
     public List<Raum> findAll() {
         return raumRepository.findAll();
     }
+
+    public void update(final Raum raum) {
+        raumRepository.save(raum);
+    }
 }

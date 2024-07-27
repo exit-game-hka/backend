@@ -24,4 +24,8 @@ public class LoesungService {
     public List<Loesung> findAll() {
         return loesungRepository.findAll();
     }
+
+    public void update(final Loesung loesung) {
+        loesungRepository.save(loesung);
+    }
 }
