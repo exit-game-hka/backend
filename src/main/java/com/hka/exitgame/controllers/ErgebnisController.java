@@ -3,6 +3,8 @@ package com.hka.exitgame.controllers;
 import com.hka.exitgame.dto.ErgebnisDto;
 import com.hka.exitgame.entities.Ergebnis;
 import com.hka.exitgame.services.ErgebniService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +18,13 @@ import java.util.UUID;
 @CrossOrigin(origins = "*")
 @RequestMapping(ApiRoute.ERGEBNIS_ROUTE)
 @Slf4j
+@Tag(name = "Ergebnis", description = "APIs zur Verwaltung von Ergebnissen")
 public class ErgebnisController {
 
     private final ErgebniService ergebniService;
 
     @GetMapping
+    @Operation(summary = "Ergebnis mit Suchkriterien auslesen", description = "Gibt die Ergebnisse mit den angegebenen Suchkriterien zurück.")
     public List<Ergebnis> find(@RequestParam Map<String, String> params) {
         var queryParamAufgabeId = params.get("aufgabe_id");
         var queryParamSpielerId = params.get("spieler_id");
@@ -40,6 +44,7 @@ public class ErgebnisController {
     }
 
     @PostMapping
+    @Operation(summary = "Ergebnis erstellen", description = "Ergebnis erstellen")
     public void create(@RequestBody final ErgebnisDto ergebnisDto) {
         ergebniService.create(ergebnisDto);
     }
@@ -51,6 +56,7 @@ public class ErgebnisController {
 
 
     @GetMapping("/semester/{id}")
+    @Operation(summary = "Ergebnis mit semesterID auslesen", description = "Ergebnis mit semesterID auslesen")
     public List<Ergebnis> findBySemesterId(@PathVariable("id") final UUID id) {
         return ergebniService.findBySemesterId(id);
     }

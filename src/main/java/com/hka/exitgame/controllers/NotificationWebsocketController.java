@@ -2,6 +2,7 @@ package com.hka.exitgame.controllers;
 
 import com.hka.exitgame.dto.NotificationDto;
 import com.hka.exitgame.repositories.NotificationRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -12,6 +13,7 @@ import java.util.UUID;
 
 @Controller
 @Slf4j
+@Tag(name = "Notification-WebSocket", description = "APIs zur Verwaltung von Benachrichtigungen über WebSocket")
 public class NotificationWebsocketController {
 
     @Autowired

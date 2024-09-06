@@ -3,6 +3,7 @@ package com.hka.exitgame.controllers;
 import com.hka.exitgame.dto.SpielerFortschrittDto;
 import com.hka.exitgame.entities.SpielerFortschritt;
 import com.hka.exitgame.services.SpielerFortschrittService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RequestMapping(ApiRoute.SPIELER_FORTSCHRITT_ROUTE)
 @Slf4j
+@Tag(name = "SpielerFortschritt", description = "APIs zur Verwaltung von SpielerFortschritten")
 public class SpielerFortschrittController {
 
     private final SpielerFortschrittService spielerFortschrittService;

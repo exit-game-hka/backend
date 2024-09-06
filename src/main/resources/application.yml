@@ -23,6 +23,14 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
       format_sql: true
 
+springdoc:
+  # Open API
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /docs
+
+
 # SERVER CONFIGS
 server:
   port: 8081
