@@ -21,7 +21,6 @@ public class SpielerFortschritt {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "uuid")
     private UUID id;
-
     private String spielerId;
     private String prozentFortschritt;
     private String updatedAt;
