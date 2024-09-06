@@ -26,9 +26,9 @@ spring:
 springdoc:
   # Open API
   api-docs:
-    path: /api-docs
+    path: /exit-game-backend/api-docs
   swagger-ui:
-    path: /docs
+    path: /exit-game-backend/docs
 
 
 # SERVER CONFIGS
