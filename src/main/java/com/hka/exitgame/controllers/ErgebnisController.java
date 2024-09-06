@@ -49,6 +49,7 @@ public class ErgebnisController {
 //        return ergebniService.findAll();
 //    }
 
+
     @GetMapping("/semester/{id}")
     public List<Ergebnis> findBySemesterId(@PathVariable("id") final UUID id) {
         return ergebniService.findBySemesterId(id);
