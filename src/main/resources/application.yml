@@ -28,9 +28,9 @@ springdoc:
   api-docs:
     path: /exit-game-backend/api-docs
   swagger-ui:
-    path: /exit-game-backend/docs
-    disable-swagger-default-url: true
-    use-root-path: true
+    path: /docs
+    #disable-swagger-default-url: true
+    #use-root-path: true
 
 # SERVER CONFIGS
 server:
