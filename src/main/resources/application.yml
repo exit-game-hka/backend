@@ -26,10 +26,10 @@ spring:
 springdoc:
   # Open API
   api-docs:
-    path: exit-game-backend/api-docs
+    path: /exit-game-backend/api-docs
   swagger-ui:
     path: /exit-game-backend/docs
-    use-root-path: true
+    #use-root-path: true
 
 
 # SERVER CONFIGS
