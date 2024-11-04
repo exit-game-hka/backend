@@ -33,4 +33,6 @@ public final class ApiRoute {
     public static final String NOTIFICATION_WEBSOCKET_SEND_ROUTE = API_VERSION + "/topic/notifications";
 
     public static final String NOTIFICATION_WEBSOCKET_RECEIVE_ROUTE = API_VERSION + "/websocket-notifications";
+
+    public static final String FRONTEND_USER_ROUTE = API_VERSION + "/frontend-users";
 }

@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -29,7 +30,8 @@ public class LoesungController {
     @GetMapping("/alle")
     @Operation(summary = "Alle Lösungen auslesen", description = "Alle Lösungen auslesen")
     public List<Loesung> findAll() {
-        return loesungService.findAll();
+        return loesungService.findAll()
+                .stream().sorted(Comparator.comparingInt(Loesung::hashCode).reversed()).toList();
     }
 
     @PutMapping
