@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @OpenAPIDefinition(
 		servers = {
-				@Server(url = "https://193.196.37.101/exit-game-backend", description = "Default Server URL")
+				@Server(url = "https://www.exitgamehka.de/exit-game-backend", description = "Default Server URL")
 		}
 )
 @SpringBootApplication
